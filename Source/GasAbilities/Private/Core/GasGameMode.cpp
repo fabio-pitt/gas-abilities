@@ -14,7 +14,7 @@ AGasGameMode::AGasGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
-
+	
 	// Set the default player controller class to our custom controller
 	static ConstructorHelpers::FClassFinder<APlayerController> PlayerControllerBPClass(TEXT(
 		"/Game/Blueprints/Characters/BP_MainController"));
@@ -24,5 +24,5 @@ AGasGameMode::AGasGameMode()
 	{
 		PlayerControllerClass = PlayerControllerBPClass.Class;
 	}
-	else UE_LOG(LogTemp, Warning, TEXT("PlayerController class not found"));
+	else UE_LOG(LogTemp, Warning, TEXT("PlayerController class not found")) 
 }
