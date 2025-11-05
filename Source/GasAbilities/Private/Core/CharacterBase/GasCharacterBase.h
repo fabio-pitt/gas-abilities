@@ -20,13 +20,12 @@ class GASABILITIES_API AGasCharacterBase : public ACharacter
 {
 	GENERATED_BODY()
 
-protected:
 	// The Camera Arm Component that positions the camera relative to the character.
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = GAS_Camera, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = GAS_Camera, meta = (AllowPrivateAccess = true))
 	TObjectPtr<USpringArmComponent> CameraArmComponent;
 
 	// The Camera Component for the character that provides the player's viewpoint.
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = GAS_Camera, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = GAS_Camera, meta = (AllowPrivateAccess = true))
 	TObjectPtr<UCameraComponent> CameraComponent;
 
 public:
