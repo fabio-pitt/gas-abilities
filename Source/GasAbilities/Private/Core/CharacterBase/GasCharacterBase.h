@@ -11,8 +11,7 @@ class USpringArmComponent;
 
 /**
  * AGasCharacterBase is an **abstract** base class for all playable Characters in the project.
- * It establishes the core functionality and component structure inherited by all derived characters, 
- * primarily serving as the owner for essential **GAS components** and attributes. 
+ * It establishes the core functionality and component structure inherited by all derived characters.
  * This class provides the foundational architecture and replication setup for Characters, 
  * ensuring derived classes can seamlessly integrate the Gameplay Ability System.
  */
@@ -33,15 +32,10 @@ protected:
 public:
 	// Sets default values for this character's properties
 	AGasCharacterBase();
+	
+	// Handler for Look action
+	void Look(FVector2d LookAxisVector);
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	// Handler for Move action
+	void Move(FVector2d MovementVector);
 };

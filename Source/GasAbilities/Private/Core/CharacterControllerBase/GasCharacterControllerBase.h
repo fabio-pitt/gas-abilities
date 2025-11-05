@@ -6,7 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "InputMappingContext.h"
 #include "InputAction.h"
-#include "GasCharacterController.generated.h"
+#include "GasCharacterControllerBase.generated.h"
 
 class AGasCharacterBase;
 struct FInputActionValue;
@@ -19,7 +19,7 @@ struct FInputActionValue;
  * while also setting up the initial Player State and HUD for the GAS environment.
  */
 UCLASS()
-class GASABILITIES_API AGasCharacterController : public APlayerController
+class GASABILITIES_API AGasCharacterControllerBase : public APlayerController
 {
 	GENERATED_BODY()
 
@@ -31,6 +31,10 @@ public:
 	// Reference to the current Gas Character Base controlled by this controller.
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = GAS_Input, meta = (AllowPrivateAccess = true))
 	TObjectPtr<AGasCharacterBase> CurrentCharacter;
+
+	// The Enhanced Input Component for handling input actions.
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = GAS_Input, meta = (AllowPrivateAccess = true))
+	TObjectPtr<UEnhancedInputComponent> EnhancedInputComponent;
 
 	/// Declare input actions for movement and looking around
 
