@@ -35,7 +35,7 @@ void AGasControllerBase::OnPossess(APawn* InPawn)
 	Super::OnPossess(InPawn);
 
 	// Cast the possessed pawn to AGasCharacterBase and store the reference
-	this->CurrentCharacter = Cast<AGasCharacterBase>(InPawn);
+	this->GasCharacterBase = Cast<AGasCharacterBase>(InPawn);
 
 	// Get the enhanced input local player subsystem
 	const TObjectPtr<UEnhancedInputLocalPlayerSubsystem> InputLocalPlayerSubsystem
@@ -53,7 +53,7 @@ void AGasControllerBase::Look(const FInputActionValue& Value)
 {
 	// Get the look axis vector from the input value and pass it to the current character
 	const FVector2d LookAxisVector = Value.Get<FVector2d>();
-	this->CurrentCharacter->Look(LookAxisVector);
+	this->GasCharacterBase->Look(LookAxisVector);
 }
 
 // Handle move input
@@ -61,17 +61,17 @@ void AGasControllerBase::Move(const FInputActionValue& Value)
 {
 	// Get the movement vector from the input value and pass it to the current character
 	const FVector2d MovementVector = Value.Get<FVector2d>();
-	this->CurrentCharacter->Move(MovementVector);
+	this->GasCharacterBase->Move(MovementVector);
 }
 
 // Handle jump input start
 void AGasControllerBase::JumpStart()
 {
-	this->CurrentCharacter->Jump();
+	this->GasCharacterBase->Jump();
 }
 
 // Handle jump input stop
 void AGasControllerBase::JumpStop()
 {
-	this->CurrentCharacter->StopJumping();
+	this->GasCharacterBase->StopJumping();
 }

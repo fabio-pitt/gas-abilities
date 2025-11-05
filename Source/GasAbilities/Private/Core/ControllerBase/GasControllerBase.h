@@ -33,7 +33,7 @@ protected:
 
 	// Reference to the current Gas Character Base controlled by this controller.
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Input|Base", meta = (AllowPrivateAccess = true))
-	TObjectPtr<AGasCharacterBase> CurrentCharacter;
+	TObjectPtr<AGasCharacterBase> GasCharacterBase;
 	
 	// The Enhanced Input Component for handling input actions.
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Input|Base", meta = (AllowPrivateAccess = true))
