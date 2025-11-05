@@ -18,6 +18,9 @@ class GASABILITIES_API UMyJumpAbility : public UGameplayAbility
 
 public:
 
+	// Override the OnGiveAbility function to set up any necessary initialization
+	virtual void OnGiveAbility(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec) override;
+
 	// Override the ActivateAbility function to implement the jump logic
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 		const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
