@@ -6,7 +6,6 @@
 #include "GameFramework/PlayerController.h"
 #include "InputMappingContext.h"
 #include "InputAction.h"
-#include "Core/GasCharacter.h"
 #include "GasControllerBase.generated.h"
 
 struct FInputActionValue;
@@ -24,7 +23,6 @@ class GASABILITIES_API AGasControllerBase : public APlayerController
 	GENERATED_BODY()
 
 protected:
-
 	/// Declare properties
 	
 	// The Input Mapping Context that defines the input scheme for the character.
@@ -33,7 +31,7 @@ protected:
 
 	// Reference to the current Gas Character Base controlled by this controller.
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Input|Base", meta = (AllowPrivateAccess = true))
-	TObjectPtr<AGasCharacterBase> GasCharacterBase;
+	TObjectPtr<class AGasCharacterBase> GasCharacterBase;
 	
 	// The Enhanced Input Component for handling input actions.
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Input|Base", meta = (AllowPrivateAccess = true))
@@ -54,7 +52,6 @@ protected:
 	TObjectPtr<UInputAction> JumpAction;
 
 public:
-
 	/// Setup
 	
 	// Called to bind functionality to input
