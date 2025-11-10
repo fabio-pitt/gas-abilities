@@ -6,6 +6,15 @@
 #include "Core/Base/Controller/GasControllerBase.h"
 #include "GasControllerAttributes.generated.h"
 
+// Define the Ability Input ID enumeration
+UENUM(BlueprintType)
+enum class EGasAbilityAttributesInputID : uint8
+{
+	None	UMETA(DisplayName = "None"),
+	Confirm UMETA(DisplayName = "Confirm"),
+	Cancel	UMETA(DisplayName = "Cancel")
+};
+
 /**
  * AGasController is the concrete Player Controller derived from AGasControllerBase.
  * It extends the base input handling by managing the **binding of Ability inputs**
@@ -29,9 +38,11 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Input|GAS", meta = (AllowPrivateAccess = true))
 	TObjectPtr<class AGasCharacterAttributes> GasCharacter;
 
-	/// Declare GAS input actions for movement and looking around
+	/// Declare GAS input actions
 	
-	// TODO: Input actions
+	// Input action for increasing health
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|GAS|Actions", meta = (AllowPrivateAccess = true))
+	TObjectPtr<UInputAction> IncreaseHealthAction;
 
 	/// Setup
 	
@@ -40,4 +51,9 @@ protected:
 
 	// Function to bind the abilities
 	void BindAbilities();
+
+	/// Input action handlers implementation
+
+	// Handler for Increase Health input
+	void IncreaseHealth();
 };
