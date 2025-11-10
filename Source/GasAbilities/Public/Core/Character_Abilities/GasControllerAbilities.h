@@ -41,7 +41,7 @@ protected:
 
 	/// Declare GAS input actions for movement and looking around
 
-	// Input action for looking around
+	// Input action for special jump
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|GAS|Actions", meta = (AllowPrivateAccess = true))
 	TObjectPtr<UInputAction> SpecialJumpAction;
 
