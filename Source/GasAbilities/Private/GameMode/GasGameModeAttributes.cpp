@@ -1,13 +1,13 @@
 ﻿// GasAbilities © 2025 Fabio Pittaccio. All Rights Reserved. Personal, non-commercial use only. See LICENSE and README for details.
 
-#include "GasAbilities/Public/Core/GasGameMode.h"
+#include "GameMode/GasGameModeAttributes.h"
 
 // Sets default values
-AGasGameMode::AGasGameMode()
+AGasGameModeAttributes::AGasGameModeAttributes()
 {
 	// Set the default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT(
-		"/Game/Blueprints/Characters/BP_MainCharacter"));
+		"/Game/Blueprints/Characters/BP_CharacterAttributes"));
 
 	// If the Blueprint class is found, set it as the default pawn class
 	if (PlayerPawnBPClass.Class != nullptr)
@@ -17,7 +17,7 @@ AGasGameMode::AGasGameMode()
 
 	// Set the default player controller class to our custom controller
 	static ConstructorHelpers::FClassFinder<APlayerController> PlayerControllerBPClass(TEXT(
-		"/Game/Blueprints/Characters/BP_MainController"));
+		"/Game/Blueprints/Controllers/BP_ControllerAttributes"));
 
 	// If the Blueprint class is found, set it as the default player controller class
 	if (PlayerControllerBPClass.Class != nullptr)

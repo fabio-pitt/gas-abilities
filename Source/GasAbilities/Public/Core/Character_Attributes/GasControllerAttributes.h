@@ -3,17 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Core/ControllerBase/GasControllerBase.h"
-#include "GasController.generated.h"
-
-// Define the Ability Input ID enumeration
-UENUM(BlueprintType)
-enum class EGasAbilityInputID : uint8
-{
-	None	UMETA(DisplayName = "None"),
-	Confirm UMETA(DisplayName = "Confirm"),
-	Cancel	UMETA(DisplayName = "Cancel")
-};
+#include "Core/Base/Controller/GasControllerBase.h"
+#include "GasControllerAttributes.generated.h"
 
 /**
  * AGasController is the concrete Player Controller derived from AGasControllerBase.
@@ -23,12 +14,11 @@ enum class EGasAbilityInputID : uint8
  * of all Gameplay Abilities and related GAS functionality.
  */
 UCLASS(Blueprintable)
-class GASABILITIES_API AGasController : public AGasControllerBase
+class GASABILITIES_API AGasControllerAttributes : public AGasControllerBase
 {
 	GENERATED_BODY()
 
 protected:
-
 	/// Declare properties
 
 	// The Input Mapping Context that defines the GAS input scheme for the character.
@@ -37,13 +27,11 @@ protected:
 
 	// Reference to the current Gas Character controlled by this controller.
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Input|GAS", meta = (AllowPrivateAccess = true))
-	TObjectPtr<AGasCharacter> GasCharacter;
+	TObjectPtr<class AGasCharacterAttributes> GasCharacter;
 
 	/// Declare GAS input actions for movement and looking around
-
-	// Input action for looking around
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|GAS|Actions", meta = (AllowPrivateAccess = true))
-	TObjectPtr<UInputAction> SpecialJumpAction;
+	
+	// TODO: Input actions
 
 	/// Setup
 	
@@ -52,9 +40,4 @@ protected:
 
 	// Function to bind the abilities
 	void BindAbilities();
-
-	/// Input action handlers implementation
-
-	// Handler for Special Jump input
-	void SpecialJump();
 };

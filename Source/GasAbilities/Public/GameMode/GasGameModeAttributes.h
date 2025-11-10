@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "GasGameMode.generated.h"
+#include "GasGameModeAttributes.generated.h"
 
 /**
  * AGasGameMode is the primary Game Mode for the GasAbilities project. 
@@ -13,11 +13,11 @@
  * Unreal Engine's Gameplay Ability System (GAS).
 */
 UCLASS()
-class GASABILITIES_API AGasGameMode : public AGameModeBase
+class GASABILITIES_API AGasGameModeAttributes : public AGameModeBase
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this game mode's properties
-	AGasGameMode();
+	AGasGameModeAttributes();
 };
