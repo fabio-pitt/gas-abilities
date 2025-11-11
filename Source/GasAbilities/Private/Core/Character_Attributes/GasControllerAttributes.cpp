@@ -4,7 +4,7 @@
 #include "Core/Character_Attributes/GasCharacterAttributes.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "MyAbilitySystemComponent.h"
+#include "ASC/MyAbilitySystemComponent.h"
 #include "Abilities/GameplayAbilityTypes.h"
 
 // Called when possessing a pawn
