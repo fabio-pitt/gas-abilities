@@ -7,7 +7,7 @@ AGasGameModeAttributes::AGasGameModeAttributes()
 {
 	// Set the default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT(
-		"/Game/Blueprints/Characters/BP_CharacterAttributes"));
+		"/Game/00_Learning/Blueprints/Characters/BP_CharacterAttributes"));
 
 	// If the Blueprint class is found, set it as the default pawn class
 	if (PlayerPawnBPClass.Class != nullptr)
@@ -17,7 +17,7 @@ AGasGameModeAttributes::AGasGameModeAttributes()
 
 	// Set the default player controller class to our custom controller
 	static ConstructorHelpers::FClassFinder<APlayerController> PlayerControllerBPClass(TEXT(
-		"/Game/Blueprints/Controllers/BP_ControllerAttributes"));
+		"/Game/00_Learning/Blueprints/Controllers/BP_ControllerAttributes"));
 
 	// If the Blueprint class is found, set it as the default player controller class
 	if (PlayerControllerBPClass.Class != nullptr)
