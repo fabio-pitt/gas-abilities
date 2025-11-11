@@ -3,7 +3,7 @@
 #include "GasControllerBase.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "Core/Base/Character/GasCharacterBase.h"
+#include "00_Learning/Core/Base/Character/GasCharacterBase.h"
 
 // Setup input component
 void AGasControllerBase::SetupInputComponent()

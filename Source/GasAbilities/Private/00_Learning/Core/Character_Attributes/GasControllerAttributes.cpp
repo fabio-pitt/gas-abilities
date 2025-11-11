@@ -1,10 +1,10 @@
 ﻿// GasAbilities © 2025 Fabio Pittaccio. All Rights Reserved. Personal, non-commercial use only. See LICENSE and README for details.
 
-#include "Core/Character_Attributes/GasControllerAttributes.h"
-#include "Core/Character_Attributes/GasCharacterAttributes.h"
+#include "00_Learning/Core/Character_Attributes/GasControllerAttributes.h"
+#include "00_Learning/Core/Character_Attributes/GasCharacterAttributes.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "ASC/MyAbilitySystemComponent.h"
+#include "00_Learning/ASC/MyAbilitySystemComponent.h"
 #include "Abilities/GameplayAbilityTypes.h"
 
 // Called when possessing a pawn

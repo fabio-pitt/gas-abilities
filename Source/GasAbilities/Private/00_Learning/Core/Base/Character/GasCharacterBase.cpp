@@ -1,6 +1,6 @@
 ﻿// GasAbilities © 2025 Fabio Pittaccio. All Rights Reserved. Personal, non-commercial use only. See LICENSE and README for details.
 
-#include "Core/Base/Character/GasCharacterBase.h"
+#include "00_Learning/Core/Base/Character/GasCharacterBase.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"

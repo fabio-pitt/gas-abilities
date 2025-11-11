@@ -3,12 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Core/Base/Controller/GasControllerBase.h"
-#include "GasControllerAttributes.generated.h"
+#include "00_Learning/Core/Base/Controller/GasControllerBase.h"
+#include "GasControllerAbilities.generated.h"
 
 // Define the Ability Input ID enumeration
 UENUM(BlueprintType)
-enum class EGasAbilityAttributesInputID : uint8
+enum class EGasAbilityInputID : uint8
 {
 	None	UMETA(DisplayName = "None"),
 	Confirm UMETA(DisplayName = "Confirm"),
@@ -23,11 +23,12 @@ enum class EGasAbilityAttributesInputID : uint8
  * of all Gameplay Abilities and related GAS functionality.
  */
 UCLASS(Blueprintable)
-class GASABILITIES_API AGasControllerAttributes : public AGasControllerBase
+class GASABILITIES_API AGasControllerAbilities : public AGasControllerBase
 {
 	GENERATED_BODY()
 
 protected:
+
 	/// Declare properties
 
 	// The Input Mapping Context that defines the GAS input scheme for the character.
@@ -36,13 +37,13 @@ protected:
 
 	// Reference to the current Gas Character controlled by this controller.
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Input|GAS", meta = (AllowPrivateAccess = true))
-	TObjectPtr<class AGasCharacterAttributes> GasCharacter;
+	TObjectPtr<class AGasCharacterAbilities> GasCharacter;
 
-	/// Declare GAS input actions
-	
-	// Input action for increasing health
+	/// Declare GAS input actions for movement and looking around
+
+	// Input action for special jump
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input|GAS|Actions", meta = (AllowPrivateAccess = true))
-	TObjectPtr<UInputAction> IncreaseHealthAction;
+	TObjectPtr<UInputAction> SpecialJumpAction;
 
 	/// Setup
 	
@@ -54,6 +55,6 @@ protected:
 
 	/// Input action handlers implementation
 
-	// Handler for Increase Health input
-	void IncreaseHealth();
+	// Handler for Special Jump input
+	void SpecialJump();
 };
