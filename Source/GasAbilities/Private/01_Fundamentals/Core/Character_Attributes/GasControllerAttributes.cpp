@@ -1,0 +1,58 @@
+﻿// GasAbilities © 2025 Fabio Pittaccio. All Rights Reserved. Personal, non-commercial use only. See LICENSE and README for details.
+
+#include "01_Fundamentals/Core/Character_Attributes/GasControllerAttributes.h"
+#include "01_Fundamentals/Core/Character_Attributes/GasCharacterAttributes.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "01_Fundamentals/ASC/MyAbilitySystemComponent.h"
+#include "Abilities/GameplayAbilityTypes.h"
+
+// Called when possessing a pawn
+void AGasControllerAttributes::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+
+	// Cast the possessed pawn to AGasCharacter and store the reference
+	this->GasCharacter = Cast<AGasCharacterAttributes>(InPawn);
+	if (this->GasCharacter == nullptr) return;
+
+	// Ensure the Ability System Component is valid
+	UAbilitySystemComponent* AbilitySystemComponent = this->GasCharacter->GetAbilitySystemComponent();
+	if (AbilitySystemComponent == nullptr) return;
+
+	// Get the enhanced input local player subsystem
+	const TObjectPtr<UEnhancedInputLocalPlayerSubsystem> InputLocalPlayerSubsystem
+		= ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(this->GetLocalPlayer());
+
+	// Add the current input mapping context to the input subsystem
+	if (InputLocalPlayerSubsystem && GasMappingContext)
+		InputLocalPlayerSubsystem->AddMappingContext(this->GasMappingContext.Get(), 1);
+
+	// Bind the healing ability to the input component
+	AbilitySystemComponent->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(
+		"Confirm",
+		"Cancel",
+		"EGasAbilityAttributesInputID",
+		static_cast<int32>(EGasAbilityAttributesInputID::Confirm),
+		static_cast<int32>(EGasAbilityAttributesInputID::Confirm)
+	));
+
+	// Call the function to bind abilities
+	BindAbilities();
+}
+
+// Function to bind the abilities
+void AGasControllerAttributes::BindAbilities()
+{
+	// Ensure the Enhanced Input Component is valid
+	if (EnhancedInputComponent == nullptr) return;
+
+	// Bind the healing action to trigger the healing ability
+	EnhancedInputComponent->BindAction(IncreaseHealthAction.Get(), ETriggerEvent::Started, this, &AGasControllerAttributes::IncreaseHealth);
+}
+
+// Handler for Increase Health input
+void AGasControllerAttributes::IncreaseHealth()
+{
+	GasCharacter->IncreaseHealth();
+}
