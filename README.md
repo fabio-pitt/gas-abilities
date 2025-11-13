@@ -7,19 +7,84 @@ An experimental project for exploring Unreal Engine's **Gameplay Ability System 
 GasAbilities is a learning and research project created to explore and master the Gameplay Ability System through practical examples. 
 Built in Unreal Engine 5.6 using C++ and Blueprints, the project features a simple testing environment with basic enemies to experiment with various GAS implementations.
 
+---
+
 ## 🎯 Objectives
 - Experiment with the Gameplay Ability System
 - Test new implementations and code patterns
 - Create a reference repository for future GAS implementations
 - Build a collection of working examples for practical use
 
-### 🎓 Purpose
+### 💭 Purpose
 
 This repository serves as:
 - A personal learning journey through GAS
 - A reference for implementing GAS features
 - A collection of working examples for future projects
 - A resource for others learning GAS
+
+---
+
+## 🗺️ Project Phases
+
+This project follows a progressive learning path divided into three distinct phases, each building upon the previous one.
+
+### 🎓 Part 1: Fundamentals (`01_Fundamentals/`)
+**Focus**: Foundation & Prototyping \
+**Status**: Completed ✅
+
+The initial exploration phase where I learned GAS basics through rapid prototyping:
+- Separated Abilities and Attributes implementations for focused learning
+- Blueprint-heavy approach for quick iteration and experimentation
+- Basic Character and Controller hierarchies
+- Introduction to Gameplay Tags, Attribute Sets, and simple Abilities
+- Dual GameMode setup for isolated testing
+
+**Tech Stack**: ~70% Blueprint, ~30% C++
+
+**Key Achievements**:
+- Understanding of ASC (Ability System Component) initialization
+- Basic ability granting and activation
+- Attribute modification and clamping
+- Gameplay tag queries and relationships
+
+### 📚 Part 2: Advanced (`02_Advanced/`)
+**Focus**: Deep Dive & Mastery \
+**Status**: In Active Development 🚧
+
+**Tech Stack**: ~80% C++, ~20% Blueprint (design iteration only)
+
+**Learning Goals**:
+- Scalable and modular architecture patterns
+- Production-ready code organization
+- Advanced GAS features and best practices
+- Performance optimization techniques
+- Clean separation of concerns
+
+### 🎮 Part 3: Production (`03_Production/`)
+**Focus**: Full-Scale Implementation \
+**Status**: Planned 📅
+
+Future phase where all learned concepts will be applied to a complete game project.
+
+**Potential Directions** (to be decided):
+- **MMORPG Style**: Class system, inventory, quests, skill trees, party mechanics
+- **MOBA Style**: Character roster, lane system, jungle camps, team abilities
+
+**Tech Stack**: ~90% C++, ~10% Blueprint (content only)
+
+## 🗺️ Progress Overview - Roadmap
+```
+┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐
+│  Part 1: Basics     │ ──→ │  Part 2: Mastery    │ ──→ │  Part 3: Project    │
+├─────────────────────┤     ├─────────────────────┤     ├─────────────────────┤
+│ *Completed*         │     │ *In Progress*       │     │ *Planned*           │
+│ Blueprint Focus     │     │ C++ Deep Dive       │     │ Full Production     │
+│ Separated Systems   │     │ Unified Integration │     │ Complete Game       │
+└─────────────────────┘     └─────────────────────┘     └─────────────────────┘
+```
+
+---
 
 ## 🛠️ Technologies
 <!-- UNREAL -->
@@ -73,10 +138,12 @@ This project is being developed while studying from various sources (_thanks to_
 - [The Wolf Around](https://www.youtube.com/@TheWolfAround) - YouTube channel, specifically the [Enhanced Input System tutorial](https://www.youtube.com/watch?v=HKX5xJcVDTw)
 - Various forums, documentation, and community resources
 
+---
+
 ## 📝 Development Notes
 This is a learning project, so the code and implementations will evolve as my understanding of GAS improves. 
 Feel free to explore, learn, and provide feedback!
 
 ## 📄 License
 This project is protected by copyright. My original code and implementations are licensed for personal, non-commercial use only. 
-Third-party content (Epic Games assets) retains its original licensing. See the [LICENSE](LICENSE) file for complete details.
+Third-party content (e.g: Epic Games assets) retains its original licensing. See the [LICENSE](LICENSE) file for complete details.
