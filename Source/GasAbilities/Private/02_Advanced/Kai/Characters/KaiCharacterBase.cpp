@@ -15,6 +15,11 @@ UAbilitySystemComponent* AKaiCharacterBase::GetAbilitySystemComponent() const
 	return AbilitySystemComponent;
 }
 
+UKaiAttributeSet* AKaiCharacterBase::GetAttributeSet() const
+{
+	return AttributeSet;
+}
+
 void AKaiCharacterBase::GiveDefaultAbilities()
 {
 	check(AbilitySystemComponent);
@@ -24,5 +29,24 @@ void AKaiCharacterBase::GiveDefaultAbilities()
 	{
 		const FGameplayAbilitySpec AbilitySpec(AbilityClass, 1);
 		AbilitySystemComponent->GiveAbility(AbilitySpec);
+	}
+}
+
+void AKaiCharacterBase::InitDefaultAttributes() const
+{
+	if (!AbilitySystemComponent || !DefaultAttributeEffect) { return; }
+	
+	FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+	EffectContext.AddSourceObject(this);
+	
+	const FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(
+		DefaultAttributeEffect,
+		1.f,
+		EffectContext
+	);
+	
+	if (SpecHandle.IsValid())
+	{
+		AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
 	}
 }

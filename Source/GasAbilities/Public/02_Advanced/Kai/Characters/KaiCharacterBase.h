@@ -5,10 +5,12 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
-#include "Abilities/GameplayAbility.h"
 #include "KaiCharacterBase.generated.h"
 
+class UGameplayAbility;
 class UKaiAbilitySystemComponent;
+class UKaiAttributeSet;
+class UGameplayEffect;
 
 UCLASS()
 class GASABILITIES_API AKaiCharacterBase : public ACharacter, public IAbilitySystemInterface
@@ -21,14 +23,27 @@ public:
 	
 	// ~ IAbilitySystemInterface interface
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-	// ~ End of IAbilitySystemInterface interface
+	// ~ End of IAbilitySystemInterface interface	
+	
+	// Attributes
+	UPROPERTY()
+	TObjectPtr<UKaiAttributeSet> AttributeSet;
+	
+	UKaiAttributeSet* GetAttributeSet() const;
 	
 protected:
 	UPROPERTY()
 	TObjectPtr<UKaiAbilitySystemComponent> AbilitySystemComponent;
 	
+	// Default Abilities
 	UPROPERTY(EditDefaultsOnly, Category = Ability)
 	TArray<TSubclassOf<UGameplayAbility>> DefaultAbilities;
 	
 	void GiveDefaultAbilities();
+	
+	// Default Attribute Effect
+	UPROPERTY(EditDefaultsOnly, Category = Ability)
+	TSubclassOf<UGameplayEffect> DefaultAttributeEffect;
+	
+	void InitDefaultAttributes() const;
 };
