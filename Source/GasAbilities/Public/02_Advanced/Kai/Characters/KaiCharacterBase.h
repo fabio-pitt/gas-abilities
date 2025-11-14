@@ -25,10 +25,7 @@ public:
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	// ~ End of IAbilitySystemInterface interface	
 	
-	// Attributes
-	UPROPERTY()
-	TObjectPtr<UKaiAttributeSet> AttributeSet;
-	
+	// Attribute Set Getter
 	UKaiAttributeSet* GetAttributeSet() const;
 	
 protected:
@@ -38,6 +35,10 @@ protected:
 	// Default Abilities
 	UPROPERTY(EditDefaultsOnly, Category = Ability)
 	TArray<TSubclassOf<UGameplayAbility>> DefaultAbilities;
+	
+	// Attributes
+	UPROPERTY()
+	TObjectPtr<UKaiAttributeSet> AttributeSet;
 	
 	void GiveDefaultAbilities();
 	
