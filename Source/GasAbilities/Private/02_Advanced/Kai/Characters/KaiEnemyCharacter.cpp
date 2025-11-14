@@ -2,6 +2,7 @@
 
 #include "02_Advanced/Kai/Characters/KaiEnemyCharacter.h"
 #include "02_Advanced/Kai/AbilitySystem/KaiAbilitySystemComponent.h"
+#include "02_Advanced/Kai/AbilitySystem/KaiAttributeSet.h"
 
 // Sets default values
 AKaiEnemyCharacter::AKaiEnemyCharacter()
@@ -11,6 +12,8 @@ AKaiEnemyCharacter::AKaiEnemyCharacter()
 	
 	AbilitySystemComponent = CreateDefaultSubobject<UKaiAbilitySystemComponent>("AbilitySystemComponent");
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
+	
+	AttributeSet = CreateDefaultSubobject<UKaiAttributeSet>("AttributeSet");
 }
 
 // Called when the game starts or when spawned
@@ -20,4 +23,6 @@ void AKaiEnemyCharacter::BeginPlay()
 	
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 	GiveDefaultAbilities();
+	
+	InitDefaultAttributes();
 }
