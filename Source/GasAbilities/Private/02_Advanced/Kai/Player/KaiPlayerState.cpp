@@ -2,6 +2,7 @@
 
 #include "02_Advanced/Kai/Player/KaiPlayerState.h"
 #include "02_Advanced/Kai/AbilitySystem/KaiAbilitySystemComponent.h"
+#include "02_Advanced/Kai/AbilitySystem/KaiAttributeSet.h"
 
 AKaiPlayerState::AKaiPlayerState()
 {
@@ -9,9 +10,16 @@ AKaiPlayerState::AKaiPlayerState()
 	
 	AbilitySystemComponent = CreateDefaultSubobject<UKaiAbilitySystemComponent>("AbilitySystemComponent");
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
+	
+	AttributeSet = CreateDefaultSubobject<UKaiAttributeSet>("AttributeSet");
 }
 
 UAbilitySystemComponent* AKaiPlayerState::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
+}
+
+UKaiAttributeSet* AKaiPlayerState::GetAttributeSet() const
+{
+	return AttributeSet;
 }

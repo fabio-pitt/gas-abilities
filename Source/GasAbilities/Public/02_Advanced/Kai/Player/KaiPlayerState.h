@@ -8,6 +8,7 @@
 #include "KaiPlayerState.generated.h"
 
 class UKaiAbilitySystemComponent;
+class UKaiAttributeSet;
 
 /**
  * 
@@ -24,7 +25,14 @@ public:
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	// ~ End of IAbilitySystemInterface interface
 	
+	// Attribute Set Getter
+	UKaiAttributeSet* GetAttributeSet() const;
+	
 protected:
 	UPROPERTY()
 	TObjectPtr<UKaiAbilitySystemComponent> AbilitySystemComponent;
+	
+	// Attributes
+	UPROPERTY()
+	TObjectPtr<UKaiAttributeSet> AttributeSet;
 };
