@@ -14,3 +14,15 @@ UAbilitySystemComponent* AKaiCharacterBase::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
 }
+
+void AKaiCharacterBase::GiveDefaultAbilities()
+{
+	check(AbilitySystemComponent);
+	if (!HasAuthority()) return;
+	
+	for (const TSubclassOf<UGameplayAbility> AbilityClass : DefaultAbilities)
+	{
+		const FGameplayAbilitySpec AbilitySpec(AbilityClass, 1);
+		AbilitySystemComponent->GiveAbility(AbilitySpec);
+	}
+}

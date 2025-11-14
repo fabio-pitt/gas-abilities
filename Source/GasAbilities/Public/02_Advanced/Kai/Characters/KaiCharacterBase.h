@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
+#include "Abilities/GameplayAbility.h"
 #include "KaiCharacterBase.generated.h"
 
 class UKaiAbilitySystemComponent;
@@ -25,4 +26,9 @@ public:
 protected:
 	UPROPERTY()
 	TObjectPtr<UKaiAbilitySystemComponent> AbilitySystemComponent;
+	
+	UPROPERTY(EditDefaultsOnly, Category = Ability)
+	TArray<TSubclassOf<UGameplayAbility>> DefaultAbilities;
+	
+	void GiveDefaultAbilities();
 };
