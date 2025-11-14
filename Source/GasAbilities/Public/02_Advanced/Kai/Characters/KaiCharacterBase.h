@@ -5,18 +5,18 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
-#include "KayCharacterBase.generated.h"
+#include "KaiCharacterBase.generated.h"
 
 class UKaiAbilitySystemComponent;
 
 UCLASS()
-class GASABILITIES_API AKayCharacterBase : public ACharacter, public IAbilitySystemInterface
+class GASABILITIES_API AKaiCharacterBase : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this character's properties
-	AKayCharacterBase();
+	AKaiCharacterBase();
 	
 	// ~ IAbilitySystemInterface interface
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;

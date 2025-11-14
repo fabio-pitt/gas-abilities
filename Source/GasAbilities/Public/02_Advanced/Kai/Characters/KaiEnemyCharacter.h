@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "02_Advanced/Kai/Characters/KayCharacterBase.h"
+#include "02_Advanced/Kai/Characters/KaiCharacterBase.h"
 #include "KaiEnemyCharacter.generated.h"
 
 UCLASS()
-class GASABILITIES_API AKaiEnemyCharacter : public AKayCharacterBase
+class GASABILITIES_API AKaiEnemyCharacter : public AKaiCharacterBase
 {
 	GENERATED_BODY()
 
