@@ -18,6 +18,8 @@ void AKaiPlayerCharacter::InitAbilitySystemComponent()
 	
 	AbilitySystemComponent = CastChecked<UKaiAbilitySystemComponent>(KaiPlayerState->GetAbilitySystemComponent());
 	AbilitySystemComponent->InitAbilityActorInfo(KaiPlayerState, this);
+	
+	AttributeSet = KaiPlayerState->GetAttributeSet();
 }
 
 void AKaiPlayerCharacter::PossessedBy(AController* NewController)
@@ -26,6 +28,8 @@ void AKaiPlayerCharacter::PossessedBy(AController* NewController)
 	
 	InitAbilitySystemComponent();
 	GiveDefaultAbilities();
+	
+	InitDefaultAttributes();
 }
 
 void AKaiPlayerCharacter::OnRep_PlayerState()
@@ -33,4 +37,6 @@ void AKaiPlayerCharacter::OnRep_PlayerState()
 	Super::OnRep_PlayerState();
 	
 	InitAbilitySystemComponent();
+	
+	InitDefaultAttributes();
 }
